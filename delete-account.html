@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dragon Ember — Delete Account</title>
+  <meta name="description" content="Request account deletion for Dragon Ember." />
+
+  <style>
+    :root { --accent: #d14b28; }
+    body {
+      margin:0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg,#fdfdfd,#f3f3f3); color:#000; line-height:1.6; padding-bottom:2rem;
+    }
+    .topbar { width:100%; background: rgba(3,6,12,0.45); backdrop-filter: blur(6px); padding:0.5rem 1rem; }
+    .container { max-width:980px; margin:1.25rem auto; padding:0 1rem; }
+    .brand { display:flex; align-items:center; gap:0.75rem; }
+    .brand img { width:36px; border-radius:6px; }
+    .brand-title { font-weight:700; color:#fff; }
+    .nav { display:flex; gap:1rem; align-items:center; }
+    .nav a { color: rgba(255,255,255,0.9); text-decoration:none; }
+    header { text-align:center; padding:2.25rem 1rem; }
+    h1 { margin:0; color:var(--accent); }
+
+    .card { background: rgba(255,255,255,0.02); padding:1.5rem; border-radius:12px; box-shadow:0 8px 30px rgba(2,6,12,0.6); }
+    form { max-width:720px; margin:0.75rem auto 0; display:flex; flex-direction:column; gap:0.75rem; }
+    label { font-size:0.95rem; font-weight:600; }
+    input[type="text"], input[type="email"], textarea { width:100%; padding:0.65rem 0.75rem; border-radius:8px; border:1px solid rgba(0,0,0,0.08); font-size:0.95rem; }
+    textarea { min-height:140px; resize:vertical; }
+    .form-actions { display:flex; gap:0.75rem; align-items:center; }
+    button[type="submit"] { background:var(--accent); color:#fff; border:none; padding:0.6rem 1rem; border-radius:8px; cursor:pointer; }
+    .danger { color:#b02a1a; font-weight:600; }
+    .note { font-size:0.9rem; color:rgba(0,0,0,0.6); }
+    @media (prefers-color-scheme: dark) { body { background: linear-gradient(180deg,#1a1a1a,#111); color: #eaeaea; } }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div class="brand">
+        <img src="assets/dragonemberlogo.png" alt="Dragon Ember" />
+        <span class="brand-title">Dragon Ember</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <h1>Request Account Deletion</h1>
+      <p>If you would like your account and associated data permanently deleted, complete the form below. We will respond to confirm your request and any verification steps.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <p class="danger">Warning: Deleting your account is permanent and cannot be undone. This will remove personal data, progress, and purchases associated with your account.</p>
+
+      <!-- For static sites we use mailto fallback. Replace action with server endpoint when available. -->
+      <form action="mailto:shannon.white@dragon-ember.app" method="post" enctype="text/plain">
+        <label for="fullname">Full name</label>
+        <input id="fullname" name="full_name" type="text" placeholder="Your full name" required />
+
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+        <label for="username">Username (if different)</label>
+        <input id="username" name="username" type="text" placeholder="Your username" />
+
+        <label for="accountid">Account ID (optional)</label>
+        <input id="accountid" name="account_id" type="text" placeholder="Account ID or UUID if known" />
+
+        <label for="reason">Reason for deletion (optional)</label>
+        <textarea id="reason" name="reason" placeholder="Optional: let us know why you’re leaving"></textarea>
+
+        <!-- simple honeypot to reduce spam -->
+        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <label><input type="checkbox" name="confirm" required /> I confirm that I want my account and all associated data permanently deleted.</label>
+
+        <div class="form-actions">
+          <button type="submit">Request Deletion</button>
+          <span class="note">After we receive your request, we may require identity verification. Deletion typically completes within 7 business days.</span>
+        </div>
+      </form>
+
+      <p class="note" style="margin-top:1rem;">If you prefer, you can also email <strong>shannon.white@dragon-ember.app</strong> directly with the same details. For questions about our data practices, see the <a href="index.html#privacy">privacy policy</a>.</p>
+    </div>
+  </div>
+
+  <footer style="text-align:center;padding:1rem;margin-top:2rem;color:rgba(255,255,255,0.7);">
+    &copy; 2026 Dragon Ember
+  </footer>
+
+</body>
+</html>
